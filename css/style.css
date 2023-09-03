@@ -7311,3 +7311,21 @@ h1, h2, h3, h4, h5, h6 {
     .single_special_cource:hover {
         transform: translateY(-5px); /* Add a slight lift effect on hover */
     }
+
+  /* Center the iframe on the page */
+  .iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Style for the iframe */
+  .chat-iframe {
+    border: 2px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px; /* Adjust as needed */
+    height: 80vh;
+  }
