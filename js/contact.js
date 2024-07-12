@@ -54,35 +54,8 @@ $(document).ready(function(){
                     minlength: "thats all? really?"
                 }
             },
-            submitHandler: function(form) {
-                $(form).ajaxSubmit({
-                    type: "POST",
-                    url: "https://formspree.io/f/xgvwvaee",
-                    data: $(form).serialize(),
-                    dataType: 'json', // Expect JSON response
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader('Content-Type', 'application/json');
-                        xhr.setRequestHeader('Accept', 'application/json');
-                    },
-                    success: function() {
-                        $('#contactForm :input').attr('disabled', 'disabled');
-                        $('#contactForm').fadeTo("slow", 1, function() {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor', 'default');
-                            $('#success').fadeIn();
-                            $('.modal').modal('hide');
-                            $('#success').modal('show');
-                        });
-                    },
-                    error: function() {
-                        $('#contactForm').fadeTo("slow", 1, function() {
-                            $('#error').fadeIn();
-                            $('.modal').modal('hide');
-                            $('#error').modal('show');
-                        });
-                    }
-                });
-            }
+          
+            
             
         })
     })
