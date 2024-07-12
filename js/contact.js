@@ -56,28 +56,34 @@ $(document).ready(function(){
             },
             submitHandler: function(form) {
                 $(form).ajaxSubmit({
-                    type:"POST",
+                    type: "POST",
+                    url: "https://formspree.io/f/xgvwvaee",
                     data: $(form).serialize(),
-                    url:"https://formspree.io/f/xgvwvaee",
+                    dataType: 'json', // Expect JSON response
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('Content-Type', 'application/json');
+                        xhr.setRequestHeader('Accept', 'application/json');
+                    },
                     success: function() {
                         $('#contactForm :input').attr('disabled', 'disabled');
-                        $('#contactForm').fadeTo( "slow", 1, function() {
+                        $('#contactForm').fadeTo("slow", 1, function() {
                             $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor','default');
-                            $('#success').fadeIn()
+                            $(this).find('label').css('cursor', 'default');
+                            $('#success').fadeIn();
                             $('.modal').modal('hide');
-		                	$('#success').modal('show');
-                        })
+                            $('#success').modal('show');
+                        });
                     },
                     error: function() {
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $('#error').fadeIn()
+                        $('#contactForm').fadeTo("slow", 1, function() {
+                            $('#error').fadeIn();
                             $('.modal').modal('hide');
-		                	$('#error').modal('show');
-                        })
+                            $('#error').modal('show');
+                        });
                     }
-                })
+                });
             }
+            
         })
     })
         
